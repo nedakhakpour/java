@@ -1,0 +1,79 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/** -Analysis-
+* In this program, the user will input the size of the array, N, and the array elements
+* seperated by a single space. The majority element, an element that appears more than 
+* N/2 times, is being searched for. If there is a majority element, the program will
+* display that value. Otherwise, if there is no majority element, the program will return
+* a 0.
+*
+* -Design-
+* In the first method, findMajority, the integer n uses the findCandidate method on the 
+* inputted array in order to find the majority element. Then, n is returned. In the
+* second method, findCandidate, searches to see if the element is 
+* a candidate for the majority element. The last method searches to see if
+* the element is a majority element itself.
+*
+**/
+
+class HW3_P4{
+
+    public int findMajority(int[] array){
+        //set n by calling other function passing in array
+        int n = findCandidate(array);
+
+        //return n
+        return n;
+	}
+    
+    /* Function to find the candidate for Majority */
+    int findCandidate(int a[]) {
+       boolean bool;
+    //for loop to scan through the array to find majority
+    for (int i = 0; i < a.length; i++) {
+    bool = isMajority(a, a[i]);
+    //see if it is candidate for majority element, if so, return val
+    if (bool)
+    return a[i];
+    }
+    return 0; 
+    }
+    
+    /* Function to check if the candidate occurs more than n/2 times */
+    boolean isMajority(int a[], int cand) {
+    int count = 0;
+    for (int i = 0; i < a.length; i++) {
+    //see if the element is a majority element
+    if (cand == a[i]) {
+        //iterate count
+    count++;
+    }
+    }
+    if (count > a.length / 2) {
+        //return true
+    return true;
+    }
+    
+        //return false by default
+    return false;
+    
+    }
+
+    
+}
+
+//MAIN
+class DriverMain{
+	public static void main(String args[]){
+		HW3_P4 hw3P4  = new HW3_P4();
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        int A[] = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = s.nextInt();
+        }
+        System.out.print(hw3P4.findMajority(A));
+	}
+}
