@@ -1,0 +1,75 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/** -Analysis-
+* The method will take in a char value of an alphabet letter, and print
+* all the alphabet letters up to it, including the given letter.
+* -Design-
+* The program will declare two arrays, one for upper case letters and one for
+* lower case letters. Two for loops are set to populate each array with each
+* letter in lower and upper cases. Another for loop iterates the length of the 
+* alphabet, then checks the given letter if it matches the index of the array.
+* If so, an inner loop goes through each letter preceding each letter, and 
+* display those letters up to the given letter. The given letter is then 
+* appended , and the list is displayed.
+**/ 
+
+class HW2_P2{
+    public void printAlphabets(char ch){
+
+	    //write your code here
+        //Two character arrays to hold each letter of the alphabet
+        char[] alphabet = new char[26];
+        char[] ALPHABET = new char[26];
+        int j = 0;
+        int w = 0;
+        //for loop to set each lower case letter in the array
+        for (char i = 'a' ; i <= 'z' ; i++) {
+            alphabet[j] = i;
+            j++;
+        }
+        
+        //for loop to set each upper case letter in the array
+        for (char i = 'A' ; i <= 'Z' ; i++) {
+            ALPHABET[w] = i;
+            w++;
+        }
+        
+        //for loop to iterate the length of the alphabet
+        for (int k = 0; k < alphabet.length; k++) {
+            //if the char is equal to the lower case array index value
+            if(ch == alphabet[k]) {
+                //loop to get and display all preceding letter 
+                for(int x = 0; x < k; x++) {
+                    //display the letter indexes
+                    System.out.print(alphabet[x] + " ");
+                }
+                //display given letter
+                System.out.println(ch);
+            } 
+            //if the char is equal to the upper case array index valu
+            if(ch == ALPHABET[k]) {
+                 //loop to get and display all preceding letter 
+                for(int x = 0; x < k; x++) {
+                    //display the letter indexes
+                    System.out.print(ALPHABET[x] + " ");
+                }
+                //display given letter
+                System.out.println(ch);
+            } 
+        }
+        
+	}
+}
+
+
+
+class DriverMain{
+	public static void main(String args[]) throws java.lang.Exception {
+        char inputChar = (char) System.in.read();
+		HW2_P2 hw2P2  = new HW2_P2();
+        hw2P2.printAlphabets(inputChar);
+
+	}
+}
