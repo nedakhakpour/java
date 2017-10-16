@@ -1,0 +1,113 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/** -Analysis-
+* This program will read the elements of a n by n, 2 dimensional array after n and
+* the array elements in the matrix are inputted by the user. The program will find
+* the first row and column with the most 1's. The array elements in the matrix, the
+* first row with the most 1's, and the first column with the most 1's will be displayed
+* in order.
+*
+* -Design-
+* In the first method, getArray, the 2 dimensional array is created and read through.
+* The array is then returned. In the second method, findFirstRow, a for loop will read
+* the contents of the rows specifically. If a 1 is found, it will be added to the count.
+* The maximum value is found if the count is greater than than the maximum value. The 
+* max value for the rows is then returned. In the last method, findFirstCol, a for loop
+*  will read the contents of the columns specifically. If a 1 is found, it will be added
+*  to the count. The maximum value is found if the count is greater than than the maximum
+*  value. The max value for the columns is then returned.
+**/
+
+class HW3_P2{
+
+         public int[][] getArray() {
+             //Scanner to read input
+             Scanner s = new Scanner(System.in);
+            //get input value
+             int n = s.nextInt();
+             //create 2D array
+             int arr[][] = new int[n][n];
+             //iterate through the arrays to place input
+             for(int i=0;i<arr.length;++i){
+               for(int j=0;j<arr[i].length;++j){
+                   arr[i][j] = s.nextInt();
+               }
+        }
+             //reutrn array
+             return arr;
+         }
+
+            
+        public int findFirstRow(int[][] matrix) {
+            //decalre variables
+            int maxindex = 0 , maxvalue = Integer.MIN_VALUE, count;
+           //for loop for iterating rows
+            for(int i=0;i<matrix.length;++i){
+               count = 0;
+                //for loop for the values at the index
+               for(int j=0;j<matrix[i].length;++j){
+                   if( matrix[i][j] ==1)
+                       //increment count
+                       ++count;
+               }
+                //finding max rows
+               if(count>maxvalue){
+                   maxindex = i;
+                   maxvalue = count;
+               }
+             }
+           return maxindex;
+        }
+    
+        public int findFirstCol(int[][] matrix) {
+            //decalre variables
+            int maxindex = 0 , maxvalue = Integer.MIN_VALUE, count;
+            //for loop for counting columns
+            for(int i=0;i<matrix.length;++i){
+              count = 0;
+              for(int j=0;j<matrix[i].length;++j){
+                  if( matrix[j][i] ==1)
+                      //increment count
+                      ++count;
+              }
+            //finding max columns
+              if(count>maxvalue){
+                  maxindex = i;
+                  maxvalue = count;
+              }
+            }
+        //return the max index
+          return maxindex;
+        
+        }
+
+}
+
+//MAIN
+class Driver{
+     public static void main(String[] args){
+        HW3_P2 hw3P2 = new HW3_P2();
+        int[][] A = hw3P2.getArray();
+        int N = A.length;
+    if(N > 0){
+         for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(A[i][j]);
+                if (j < (N - 1)) {
+                    System.out.print(" ");
+                }
+            }
+            if(i<N-1)
+                System.out.println();
+        }
+   		System.out.println();
+        System.out.println(hw3P2.findFirstRow(A));
+        System.out.print(hw3P2.findFirstCol(A));
+             
+    }else
+            System.out.println("-1"); 
+            
+        }   
+}
