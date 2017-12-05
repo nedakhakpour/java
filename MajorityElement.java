@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
+----------------------------------------------------------------------------------------------------
 /** -Analysis-
 * In this program, the user will input the size of the array, N, and the array elements
 * seperated by a single space. The majority element, an element that appears more than 
@@ -64,7 +64,7 @@ class HW3_P4{
     
 }
 
-//MAIN
+--------------------------------------------------------------------------
 class DriverMain{
 	public static void main(String args[]){
 		HW3_P4 hw3P4  = new HW3_P4();
