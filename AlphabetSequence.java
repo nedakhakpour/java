@@ -2,6 +2,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+---------------------------------------------------------------------------------
+
 /** -Analysis-
 * The method will take in a char value of an alphabet letter, and print
 * all the alphabet letters up to it, including the given letter.
@@ -63,7 +65,7 @@ class HW2_P2{
 	}
 }
 
-
+---------------------------------------------------------------------------------
 
 class DriverMain{
 	public static void main(String args[]) throws java.lang.Exception {
