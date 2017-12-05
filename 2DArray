@@ -2,6 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+-------------------------------------------------------------------------------------
 /** -Analysis-
 * This program will read the elements of a n by n, 2 dimensional array after n and
 * the array elements in the matrix are inputted by the user. The program will find
@@ -85,7 +86,8 @@ class HW3_P2{
 
 }
 
-//MAIN
+----------------------------------------------------------------------
+
 class Driver{
      public static void main(String[] args){
         HW3_P2 hw3P2 = new HW3_P2();
