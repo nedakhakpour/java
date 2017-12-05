@@ -1,0 +1,38 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+-----------------------------------------------------------------------
+
+class ProblemSolution {
+    public int solution(int N) {
+        //write your code here
+        if(N == reverse(N)) {
+            return 1;
+        }
+        
+        return 0;   
+    }
+    
+    private static int reverse(int N) {
+        int reverse = 0;
+        
+        while(N != 0) {
+            reverse = (reverse * 10) + (N % 10);
+            N = N/10;
+        }
+        
+        return reverse;
+    }
+}
+
+------------------------------------------------------------------------------
+
+class DriverMain {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        ProblemSolution problemSolution = new ProblemSolution();
+        System.out.print(problemSolution.solution(N));
+    }
+}
